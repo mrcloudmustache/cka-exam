@@ -31,6 +31,34 @@ kubeconfig file location ```~/.kube/config```
 
 ## Cluster components
 
+```DaemonSets``` ensure a single pod is running on each node in the cluster. Kube proxy and CNI(calico) run as a DaemonSet.
+```kubelet``` is a background Linux process. It's not managed by Kuburnetes.
+
+View the kubelet service
+
+```
+$ sudo systemctl status kubelet
+```
+
+View kubelet logs
+
+```
+$ sudo journalctl -u kubelet
+```
+
+View containerd logs
+
+```
+$ sudo journalctl -u containerd
+```
+
+View pod logs in directory
+
+```
+$ sudo ls /var/log/pods/
+```
+
+
 ### Control Plane nodes
 
 Runs the API server, DNS and controller manager, scheduler, kube-proxy and etcd datastore.
