@@ -69,14 +69,10 @@ View system pods on control node
 $ kubectl get pods -n kube-system
 ```
 
-* coredns
 * ETCD datastore - Stores all the Kubernetes configuration data. Losing the datastore is catastrophic.
 * API server - Exposes the Kubernetes API and acts as the entry point in to the entire cluster.
-* kube-proxy
 * Sheduler - Shedules pods to run a select nodes based on taints, tolerations and available node resources.
 * Controller manager - Manager of all other controllers such as Deployments and Replicasets. A controller matches the current state to the desired state.
-* metrics-server (must be installed seperately)
-* calico (CNI puligin installed seperately)
 
 ### Worker nodes
 
