@@ -126,4 +126,52 @@ sudo systemctl restart kubelet
 kubectl uncordon worker1
 ```
 
+## Scheduling
+
+### Taints and Tolerations
+
+Taint worker1
+
+value is optional.
+
+```
+kubectl taint node worker1 dedicated=special-user:NoSchedule
+```
+
+Remove taint with no value from worker1
+
+```
+kubectl taint node worker1 dedicated=:NoSchedule-
+```
+
+Add Toleration to depolyment so that pods tolerate the taint on worker1 and possibly scheduled onto the node.
+
+Operator
+* Equal - must enter key, value and effect
+* Exists - must enter only key and effect
+
+Effects
+* NoSchedule - This means that no pod will be able to schedule onto a node unless it has a matching toleration.
+* PreferNoSchedule - The control plane will try to avoid placing a Pod that does not tolerate the taint on the node, but it is not guaranteed.
+* NoExecute - Pods that do not tolerate the taint are evicted immediately
+
+```
+spec:
+   containers:
+      - .....
+   # Equal example
+   tolerations:
+   - key: "dedeicated"
+     operator: "Equal"
+     value: "special-user"
+     effect: "NoSchedule"
+   # Exists example
+   tolerations:
+   - key: "dedeicated"
+     operator: "Exists"
+     effect: "NoSchedule"
+```
+
+
+
 
