@@ -161,13 +161,13 @@ spec:
       - .....
    # Equal example
    tolerations:
-   - key: "dedeicated"
+   - key: "dedicated"
      operator: "Equal"
      value: "special-user"
      effect: "NoSchedule"
    # Exists example
    tolerations:
-   - key: "dedeicated"
+   - key: "dedicated"
      operator: "Exists"
      effect: "NoSchedule"
 ```
