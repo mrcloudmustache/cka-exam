@@ -210,6 +210,24 @@ spec:
 # status: {}
 ```
 
+## Static Pods
+
+kubelet config location
+
+```
+/var/lib/kubelet/config.yaml
+```
+
+Path to the manifest directory
+
+```
+shutdownGracePeriod: 0s
+shutdownGracePeriodCriticalPods: 0s
+staticPodPath: /etc/kubernetes/manifests
+streamingConnectionIdleTimeout: 0s
+syncFrequency: 0s
+```
+
 
 
 
