@@ -212,6 +212,10 @@ spec:
 
 ## Static Pods
 
+Pods managed by kubelet not the API server.
+
+Add pod(not deployment, replicasets etc) definition files to the manifest directory.
+
 kubelet config location
 
 ```
@@ -226,6 +230,21 @@ shutdownGracePeriodCriticalPods: 0s
 staticPodPath: /etc/kubernetes/manifests
 streamingConnectionIdleTimeout: 0s
 syncFrequency: 0s
+```
+
+View static pods without the API server
+
+```
+sudo crictl ps
+
+CONTAINER           IMAGE               CREATED             STATE               NAME                      ATTEMPT             POD ID              POD                                       NAMESPACE
+2c0612bcb7a49       53ed370019059       5 days ago          Running             kube-proxy                0                   d3260da58a81c       kube-proxy-cghjx                          kube-system
+b4e75f398b752       87c9b0e4f80d3       5 days ago          Running             kube-scheduler            0                   02df7a82650f2       kube-scheduler-control                    kube-system
+7ce385752d77e       5e785d005ccc1       5 days ago          Running             calico-kube-controllers   29                  36b9056e394a7       calico-kube-controllers-b45f49df6-njks7   kube-system
+f262f07f15879       0f2b96c93465f       5 days ago          Running             kube-apiserver            0                   a622195ca1b92       kube-apiserver-control                    kube-system
+ff67c464b5276       0eb506280f9bc       5 days ago          Running             kube-controller-manager   1                   9e869696fd7fd       kube-controller-manager-control           kube-system
+188d985460341       0a108f7189562       8 weeks ago         Running             etcd                      1                   a57755899f1fc       etcd-control                              kube-system
+0e6c3268f9af4       08616d26b8e74       2 months ago        Running             calico-node               0                   6db91db2df2eb       calico-node-rfpsp   
 ```
 
 
