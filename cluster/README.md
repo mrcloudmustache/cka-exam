@@ -212,7 +212,7 @@ spec:
 
 ## Static Pods
 
-Pods managed by kubelet not the API server.
+Pods created and managed by kubelet. The control plane is viewing read-only versions of pod mirrors.
 
 Add pod(not deployment, replicasets etc) definition files to the manifest directory.
 
