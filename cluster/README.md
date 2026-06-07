@@ -172,6 +172,44 @@ spec:
      effect: "NoSchedule"
 ```
 
+## DaemonSets
+
+Create Deployment imperatively and update to DaemonSet
+
+```
+kubectl create deployment fluentd --image=quay.io/fluentd_elasticsearch/fluentd:v5.0.1 -n kube-system --dry-run=client -o yaml > fluentd-ds.yaml
+```
+
+Change kind from Deployment to DaemonSet 
+
+Remove replicas, strategy and status  
+
+```
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: fluentd
+  name: fluentd
+  namespace: kube-system
+spec:
+  # replicas: 1
+  selector:
+    matchLabels:
+      app: fluentd
+  # strategy: {}
+  template:
+    metadata:
+      labels:
+        app: fluentd
+    spec:
+      containers:
+      - image: quay.io/fluentd_elasticsearch/fluentd:v5.0.1
+        name: fluentd
+        resources: {}
+# status: {}
+```
+
 
 
 
