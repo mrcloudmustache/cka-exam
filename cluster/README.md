@@ -214,6 +214,8 @@ spec:
 
 Pods created and managed by kubelet. The control plane is viewing read-only versions of pod mirrors.
 
+Deploys control plane components as static pods.
+
 Add pod(not deployment, replicasets etc) definition files to the manifest directory.
 
 kubelet config location
