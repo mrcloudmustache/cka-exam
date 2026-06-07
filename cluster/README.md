@@ -218,6 +218,12 @@ Deploys control plane components as static pods.
 
 Add pod(not deployment, replicasets etc) definition files to the manifest directory.
 
+View the kubelet config map to locate the manifests directory path
+
+```
+kubectl -n kube-system describe cm kubelet-config 
+```
+
 kubelet config location
 
 ```
