@@ -2,8 +2,6 @@
 
 ## CNI directories
 
-CNI binaries
-```/opt/cni/bin```
+CNI binaries: ```/opt/cni/bin```
 
-CNI plugin configurations
-```/etc/cni/net.d/```
+CNI plugin configurations: ```/etc/cni/net.d/```
